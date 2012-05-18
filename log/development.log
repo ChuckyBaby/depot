@@ -1,0 +1,481 @@
+  [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (31.2ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35m (0.0ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateProducts (20120518161146)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (15.6ms)[0m  [1mCREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "description" text, "image_url" varchar(255), "price" decimal, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20120518161146')
+  [1m[36m (32.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("products")
+
+
+Started GET "/product" for 127.0.0.1 at 2012-05-18 12:25:51 -0400
+
+ActionController::RoutingError (No route matches [GET] "/product"):
+  actionpack (3.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.1) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.1) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.1) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/static.rb:53:in `call'
+  railties (3.2.1) lib/rails/engine.rb:479:in `call'
+  railties (3.2.1) lib/rails/application.rb:220:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.1) lib/rails/rack/log_tailer.rb:14:in `call'
+  rack (1.4.1) lib/rack/handler/webrick.rb:59:in `service'
+  c:/RailsInstaller/Ruby1.9.3/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  c:/RailsInstaller/Ruby1.9.3/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  c:/RailsInstaller/Ruby1.9.3/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (15.6ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2012-05-18 12:27:39 -0400
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT "products".* FROM "products" [0m
+  Rendered products/index.html.erb within layouts/application (0.0ms)
+Compiled products.css  (124ms)  (pid 4720)
+Compiled scaffolds.css  (31ms)  (pid 4720)
+Compiled application.css  (358ms)  (pid 4720)
+Compiled jquery.js  (15ms)  (pid 4720)
+Compiled jquery_ujs.js  (0ms)  (pid 4720)
+Compiled products.js  (795ms)  (pid 4720)
+Compiled application.js  (1326ms)  (pid 4720)
+Completed 200 OK in 1903ms (Views: 1903.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-18 12:27:41 -0400
+Served asset /application.css - 304 Not Modified (140ms)
+
+
+Started GET "/assets/products.css?body=1" for 127.0.0.1 at 2012-05-18 12:27:42 -0400
+Served asset /products.css - 200 OK (15ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-05-18 12:27:42 -0400
+Served asset /scaffolds.css - 200 OK (46ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-18 12:27:42 -0400
+Served asset /jquery.js - 304 Not Modified (15ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-18 12:27:42 -0400
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/products.js?body=1" for 127.0.0.1 at 2012-05-18 12:27:42 -0400
+Served asset /products.js - 200 OK (15ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-18 12:27:42 -0400
+Served asset /application.js - 304 Not Modified (15ms)
+
+
+Started GET "/products/new" for 127.0.0.1 at 2012-05-18 12:28:12 -0400
+Processing by ProductsController#new as HTML
+  Rendered products/_form.html.erb (156.0ms)
+  Rendered products/new.html.erb within layouts/application (249.6ms)
+Completed 200 OK in 296ms (Views: 280.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-05-18 12:28:12 -0400
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-18 12:28:12 -0400
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/products.css?body=1" for 127.0.0.1 at 2012-05-18 12:28:12 -0400
+Served asset /products.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-18 12:28:12 -0400
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-18 12:28:12 -0400
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/products.js?body=1" for 127.0.0.1 at 2012-05-18 12:28:12 -0400
+Served asset /products.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-18 12:28:12 -0400
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/products/new" for 127.0.0.1 at 2012-05-18 12:31:12 -0400
+Processing by ProductsController#new as HTML
+  Rendered products/_form.html.erb (15.6ms)
+  Rendered products/new.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 31ms (Views: 31.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-18 12:31:12 -0400
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/products.css?body=1" for 127.0.0.1 at 2012-05-18 12:31:12 -0400
+Served asset /products.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-05-18 12:31:12 -0400
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-18 12:31:12 -0400
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-18 12:31:12 -0400
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/products.js?body=1" for 127.0.0.1 at 2012-05-18 12:31:12 -0400
+Served asset /products.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-18 12:31:12 -0400
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started POST "/products" for 127.0.0.1 at 2012-05-18 12:41:51 -0400
+Processing by ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ic7qggFpCn54cu7wZQwijO3aXKxlXATG2rVHrMma3pE=", "product"=>{"title"=>"CoffeeScript", "description"=>"<p>\r\n        CoffeeScript is JavaScript done right. It provides all of JavaScript's\r\n\tfunctionality wrapped in a cleaner, more succinct syntax. In the first\r\n\tbook on this exciting new language, CoffeeScript guru Trevor Burnham\r\n\tshows you how to hold onto all the power and flexibility of JavaScript\r\n\twhile writing clearer, cleaner, and safer code.\r\n      </p>", "image_url"=>"cs.jpg", "price"=>"36.00"}, "commit"=>"Create Product"}
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (78.0ms)[0m  [1mINSERT INTO "products" ("created_at", "description", "image_url", "price", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 18 May 2012 16:41:51 UTC +00:00], ["description", "<p>\r\n        CoffeeScript is JavaScript done right. It provides all of JavaScript's\r\n\tfunctionality wrapped in a cleaner, more succinct syntax. In the first\r\n\tbook on this exciting new language, CoffeeScript guru Trevor Burnham\r\n\tshows you how to hold onto all the power and flexibility of JavaScript\r\n\twhile writing clearer, cleaner, and safer code.\r\n      </p>"], ["image_url", "cs.jpg"], ["price", #<BigDecimal:3fe0cb8,'0.36E2',9(18)>], ["title", "CoffeeScript"], ["updated_at", Fri, 18 May 2012 16:41:51 UTC +00:00]]
+  [1m[35m (15.6ms)[0m  commit transaction
+Redirected to http://localhost:3000/products/1
+Completed 302 Found in 109ms (ActiveRecord: 93.6ms)
+
+
+Started GET "/products/1" for 127.0.0.1 at 2012-05-18 12:41:51 -0400
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered products/show.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-18 12:41:51 -0400
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/products.css?body=1" for 127.0.0.1 at 2012-05-18 12:41:51 -0400
+Served asset /products.css - 304 Not Modified (15ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-05-18 12:41:51 -0400
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-18 12:41:51 -0400
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-18 12:41:51 -0400
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/products.js?body=1" for 127.0.0.1 at 2012-05-18 12:41:51 -0400
+Served asset /products.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-18 12:41:51 -0400
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2012-05-18 12:42:04 -0400
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.0ms)[0m  SELECT "products".* FROM "products" 
+  Rendered products/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-18 12:42:04 -0400
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/products.css?body=1" for 127.0.0.1 at 2012-05-18 12:42:04 -0400
+Served asset /products.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-05-18 12:42:04 -0400
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-18 12:42:04 -0400
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-18 12:42:04 -0400
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/products.js?body=1" for 127.0.0.1 at 2012-05-18 12:42:04 -0400
+Served asset /products.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-18 12:42:04 -0400
+Served asset /application.js - 304 Not Modified (0ms)
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mCREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "description" text, "image_url" varchar(255), "price" decimal, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (31.2ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35m (46.8ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.0ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (15.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120518161146')
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+
+
+Started GET "/products" for 127.0.0.1 at 2012-05-18 16:15:01 -0400
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT "products".* FROM "products" [0m
+  Rendered products/index.html.erb within layouts/application (187.2ms)
+Compiled products.css  (15ms)  (pid 4720)
+Compiled application.css  (0ms)  (pid 4720)
+Completed 200 OK in 234ms (Views: 234.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-18 16:15:02 -0400
+Served asset /application.css - 304 Not Modified (31ms)
+
+
+Started GET "/assets/products.css?body=1" for 127.0.0.1 at 2012-05-18 16:15:02 -0400
+Served asset /products.css - 200 OK (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-05-18 16:15:02 -0400
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-18 16:15:02 -0400
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-18 16:15:02 -0400
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/products.js?body=1" for 127.0.0.1 at 2012-05-18 16:15:02 -0400
+Served asset /products.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-18 16:15:02 -0400
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/cs.jpg" for 127.0.0.1 at 2012-05-18 16:15:02 -0400
+Served asset /cs.jpg - 200 OK (31ms)
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35mSQL (62.4ms)[0m  DELETE FROM "products"
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (62.4ms)[0m  INSERT INTO "products" ("created_at", "description", "image_url", "price", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Fri, 18 May 2012 20:21:07 UTC +00:00], ["description", "<p>\n        CoffeeScript is JavaScript done right. It provides all of JavaScript's\n\tfunctionality wrapped in a cleaner, more succinct syntax. In the first\n\tbook on this exciting new language, CoffeeScript guru Trevor Burnham\n\tshows you how to hold onto all the power and flexibility of JavaScript\n\twhile writing clearer, cleaner, and safer code.\n      </p>"], ["image_url", "cs.jpg"], ["price", #<BigDecimal:3e2dd60,'0.36E2',9(45)>], ["title", "CoffeeScript"], ["updated_at", Fri, 18 May 2012 20:21:07 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "products" ("created_at", "description", "image_url", "price", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 18 May 2012 20:21:07 UTC +00:00], ["description", "<p>\n        Ruby is the fastest growing and most exciting dynamic language\n        out there. If you need to get working programs delivered fast,\n        you should add Ruby to your toolbox.\n      </p>"], ["image_url", "ruby.jpg"], ["price", #<BigDecimal:4125648,'0.4995E2',18(45)>], ["title", "Programming Ruby 1.9"], ["updated_at", Fri, 18 May 2012 20:21:07 UTC +00:00]]
+  [1m[35m (15.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "products" ("created_at", "description", "image_url", "price", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Fri, 18 May 2012 20:21:07 UTC +00:00], ["description", "<p>\n        <em>Rails Test Prescriptions</em> is a comprehensive guide to testing\n        Rails applications, covering Test-Driven Development from both a\n        theoretical perspective (why to test) and from a practical perspective\n        (how to test effectively). It covers the core Rails testing tools and\n        procedures for Rails 2 and Rails 3, and introduces popular add-ons,\n        including Cucumber, Shoulda, Machinist, Mocha, and Rcov.\n      </p>"], ["image_url", "rtp.jpg"], ["price", #<BigDecimal:412fb00,'0.3495E2',18(45)>], ["title", "Rails Test Prescriptions"], ["updated_at", Fri, 18 May 2012 20:21:07 UTC +00:00]]
+  [1m[36m (15.6ms)[0m  [1mcommit transaction[0m
+
+
+Started GET "/products" for 127.0.0.1 at 2012-05-18 16:21:44 -0400
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.0ms)[0m  SELECT "products".* FROM "products" 
+  Rendered products/index.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 31ms (Views: 31.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-18 16:21:44 -0400
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/products.css?body=1" for 127.0.0.1 at 2012-05-18 16:21:44 -0400
+Served asset /products.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-05-18 16:21:44 -0400
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-18 16:21:44 -0400
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-18 16:21:44 -0400
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/products.js?body=1" for 127.0.0.1 at 2012-05-18 16:21:44 -0400
+Served asset /products.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-18 16:21:44 -0400
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/ruby.jpg" for 127.0.0.1 at 2012-05-18 16:21:44 -0400
+Served asset /ruby.jpg - 200 OK (31ms)
+
+
+Started GET "/assets/rtp.jpg" for 127.0.0.1 at 2012-05-18 16:21:44 -0400
+Served asset /rtp.jpg - 200 OK (15ms)
+
+
+Started GET "/assets/cs.jpg" for 127.0.0.1 at 2012-05-18 16:21:44 -0400
+Served asset /cs.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2012-05-18 16:32:53 -0400
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT "products".* FROM "products" [0m
+  Rendered products/index.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 31ms (Views: 15.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-18 16:32:53 -0400
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/products.css?body=1" for 127.0.0.1 at 2012-05-18 16:32:53 -0400
+Served asset /products.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-05-18 16:32:53 -0400
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-18 16:32:53 -0400
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-18 16:32:53 -0400
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/products.js?body=1" for 127.0.0.1 at 2012-05-18 16:32:53 -0400
+Served asset /products.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-18 16:32:53 -0400
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/ruby.jpg" for 127.0.0.1 at 2012-05-18 16:32:53 -0400
+Served asset /ruby.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/rtp.jpg" for 127.0.0.1 at 2012-05-18 16:32:53 -0400
+Served asset /rtp.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/cs.jpg" for 127.0.0.1 at 2012-05-18 16:32:53 -0400
+Served asset /cs.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2012-05-18 16:33:34 -0400
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.0ms)[0m  SELECT "products".* FROM "products" 
+  Rendered products/index.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 16ms (Views: 15.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-18 16:33:34 -0400
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/products.css?body=1" for 127.0.0.1 at 2012-05-18 16:33:34 -0400
+Served asset /products.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-05-18 16:33:34 -0400
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-18 16:33:34 -0400
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-18 16:33:34 -0400
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/products.js?body=1" for 127.0.0.1 at 2012-05-18 16:33:34 -0400
+Served asset /products.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-18 16:33:34 -0400
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/cs.jpg" for 127.0.0.1 at 2012-05-18 16:33:34 -0400
+Served asset /cs.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/rtp.jpg" for 127.0.0.1 at 2012-05-18 16:33:34 -0400
+Served asset /rtp.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/ruby.jpg" for 127.0.0.1 at 2012-05-18 16:33:34 -0400
+Served asset /ruby.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2012-05-18 17:04:01 -0400
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT "products".* FROM "products" [0m
+  Rendered products/index.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 31ms (Views: 15.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-18 17:04:01 -0400
+Served asset /application.css - 200 OK (0ms)
+
+
+Started GET "/assets/products.css?body=1" for 127.0.0.1 at 2012-05-18 17:04:01 -0400
+Served asset /products.css - 200 OK (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-05-18 17:04:01 -0400
+Served asset /scaffolds.css - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-18 17:04:01 -0400
+Served asset /jquery.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-18 17:04:02 -0400
+Served asset /jquery_ujs.js - 200 OK (0ms)
+
+
+Started GET "/assets/products.js?body=1" for 127.0.0.1 at 2012-05-18 17:04:02 -0400
+Served asset /products.js - 200 OK (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-18 17:04:02 -0400
+Served asset /application.js - 200 OK (0ms)
+
+
+Started GET "/assets/cs.jpg" for 127.0.0.1 at 2012-05-18 17:04:02 -0400
+Served asset /cs.jpg - 200 OK (0ms)
+
+
+Started GET "/assets/ruby.jpg" for 127.0.0.1 at 2012-05-18 17:04:02 -0400
+Served asset /ruby.jpg - 200 OK (0ms)
+
+
+Started GET "/assets/rtp.jpg" for 127.0.0.1 at 2012-05-18 17:04:02 -0400
+Served asset /rtp.jpg - 200 OK (0ms)
